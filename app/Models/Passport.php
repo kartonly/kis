@@ -10,10 +10,12 @@ class Passport extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
         'clientId',
         'pasId',
-        'issueOrg'
+        'issueOrg',
+        'issueDate'
     ];
 
     protected $casts = [

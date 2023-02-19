@@ -24,14 +24,14 @@ class UserFactory extends Factory
     {
         return [
             'email' => $this->faker->unique()->safeEmail(),
-            'username' => $this->faker-> userName,
-            'first_name' => $this->faker->firstName,
-            'second_name' => $this->faker->firstName,
-            'last_name' => $this->faker->lastName,
-            'gender' => ($this->faker->boolean) ? 'male' : 'female',
-            'role' => ($this->faker->boolean) ? 'seller' : 'buyer',
-            'email_verified_at' => now(),
-            'birth_date' => $this->faker->date,
+            'username' => $this->faker-> userName(),
+            'first_name' => $this->faker->firstName(),
+            'second_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'gender' => $this->faker->boolean() ? 'male' : 'female',
+            'role' => $this->faker->boolean() ? 'agent' : 'manager',
+            'birth_date' => $this->faker->date(),
+            'organisation' => 2,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];

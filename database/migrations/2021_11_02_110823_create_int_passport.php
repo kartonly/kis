@@ -13,7 +13,7 @@ class CreateIntPassport extends Migration
      */
     public function up()
     {
-        Schema::create('int_passport', function (Blueprint $table) {
+        Schema::create('int_passports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('clientId')->constrained('clients','id');
             $table->enum('type',['T', 'S','P','D']);

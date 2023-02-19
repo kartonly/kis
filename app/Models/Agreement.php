@@ -30,7 +30,7 @@ class Agreement extends Model
         return $this->belongsTo(Organisation::class);
     }
 
-    private function preagreement(): HasOne {
+    public function preagreement(): HasOne {
         return $this->hasOne(Preagreement::class);
     }
 

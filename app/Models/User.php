@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -17,6 +18,7 @@ class User extends Authenticatable implements JWTSubject, HasMedia
 {
     use Notifiable;
     use InteractsWithMedia;
+    use HasFactory;
 
 
     protected $fillable = [

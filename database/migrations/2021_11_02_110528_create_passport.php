@@ -13,10 +13,10 @@ class CreatePassport extends Migration
      */
     public function up()
     {
-        Schema::create('passport', function (Blueprint $table) {
+        Schema::create('passports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('clientId')->constrained('clients','id');
-            $table->integer('pasId');
+            $table->integer('pasId')->unique();
             $table->date('issueDate');
             $table->string('issueOrg');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreatePassport extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('passport');
+        Schema::dropIfExists('passports');
     }
 }

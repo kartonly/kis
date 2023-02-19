@@ -16,11 +16,11 @@ class Stops extends Model
       'agreement'
     ];
 
-    private function city(): BelongsTo {
+    public function city(): BelongsTo {
         $this->belongsTo(City::class);
     }
 
-    private function agreement(): BelongsTo {
+    public function agreement(): BelongsTo {
         $this->belongsTo(Agreement::class);
     }
 

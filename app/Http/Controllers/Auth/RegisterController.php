@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Models\Organisation;
 use App\UserManager;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
@@ -18,10 +19,16 @@ class RegisterController extends Controller
         $password = $request->input('password');
 
         $userManager = app(UserManager::class);
-        $userManager->create($request->all());
+        $user = $userManager->create($request->all());
 
         $token = $userManager->auth($email, $password, $remember);
 
-        return (new Response([], 200))->header('Authorization','Bearer '.$token);
+        return (new Response([$user->id], 200))->header('Access-Control-Allow-Origin', '*');
+    }
+
+    public function getOrganisation(){
+        $organisations = Organisation::all();
+
+        return $organisations;
     }
 }

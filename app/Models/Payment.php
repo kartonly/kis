@@ -15,14 +15,15 @@ class Payment extends Model
         'date',
         'summ',
         'employee',
-        'agreement'
+        'agreement',
+        'organisation'
     ];
 
     private function employee(): BelongsTo {
         $this->belongsTo(User::class);
     }
 
-    private function agreement(): HasOne {
+    public function agreement(): HasOne {
         $this->hasOne(Agreement::class);
     }
 }

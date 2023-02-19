@@ -59,8 +59,10 @@ class UserManager
 
     public function update(array $params): User
     {
+        if (isset($params['password'])){
+            $params['password'] = Hash::make($params['password']);
+        }
         $this->user->update($params);
-
         return $this->user;
     }
 
@@ -84,6 +86,10 @@ class UserManager
 
     public function updateMedia($file){
         $this->user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
+    }
+
+    public function delete(){
+        $this->user->delete();
     }
 
 }

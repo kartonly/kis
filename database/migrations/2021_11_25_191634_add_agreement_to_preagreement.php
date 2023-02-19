@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCity extends Migration
+class AddAgreementToPreagreement extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCity extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
-            $table->id();
-            $table->string('city');
-            $table->foreignId('country')->constrained('country','id');
-            $table->timestamps();
+        Schema::table('preagreements', function (Blueprint $table) {
+            $table->boolean('agreement');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateCity extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::table('preagreement', function (Blueprint $table) {
+            //
+        });
     }
 }
